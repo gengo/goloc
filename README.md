@@ -23,4 +23,9 @@ Usage:
 	cat path/to/file | goloc
 ```
 
-Goloc reads from stdin, so the easiest is to `cat` a file and feed it to goloc`
+Goloc reads from stdin, so the easiest is to `cat` a file and feed it to goloc:
+
+```
+$ cat myfile.go | goloc
+20
+```
