@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
-	"io"
 	"os"
 	"strings"
 
@@ -41,10 +40,6 @@ func main() {
 }
 
 func usageExit() {
-	printUsage(os.Stderr)
+	fmt.Fprint(os.Stderr, usageTemplate)
 	os.Exit(2)
-}
-
-func printUsage(w io.Writer) {
-	fmt.Fprint(w, usageTemplate)
 }
