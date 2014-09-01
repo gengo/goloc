@@ -24,14 +24,10 @@ func CountStatements(src string) (int, error) {
 	// Inspect the AST and print all identifiers and literals.
 	ast.Inspect(f, func(n ast.Node) bool {
 		switch n.(type) {
-		case *ast.Comment, *ast.CommentGroup:
-			return false
-		case *ast.GenDecl:
+		case *ast.Comment, *ast.CommentGroup, *ast.GenDecl, *ast.Package:
 			return false
 		case *ast.FuncDecl, *ast.FuncType, *ast.FuncLit:
 			return true
-		case *ast.Package:
-			return false
 		case *ast.AssignStmt, *ast.GoStmt, *ast.IfStmt, *ast.ForStmt,
 			*ast.DeclStmt, *ast.ExprStmt, *ast.SendStmt,
 			*ast.SelectStmt, *ast.RangeStmt,
